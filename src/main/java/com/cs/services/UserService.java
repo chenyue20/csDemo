@@ -1,7 +1,10 @@
 package com.cs.services;
 
 import com.cs.domain.dtos.UserDto;
+import com.cs.entity.User;
 import com.cs.exceptions.UserRegistrationException;
+
+import java.util.List;
 
 /**
  * Demo interface
@@ -11,4 +14,10 @@ import com.cs.exceptions.UserRegistrationException;
  */
 public interface UserService {
     void doRegister(UserDto userDto) throws UserRegistrationException;
+
+    User getById(Long id);
+
+    List<User> listUser();
+
+    void insertUser(User user);
 }

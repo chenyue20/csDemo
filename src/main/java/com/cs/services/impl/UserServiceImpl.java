@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("userService")
 @RequiredArgsConstructor
 @Slf4j
@@ -24,6 +26,21 @@ public class UserServiceImpl implements UserService {
         }
         User user = new User();
         BeanUtils.copyProperties(userDto, user);
+        userRepository.insertUser(user);
+    }
+
+    @Override
+    public User getById(Long id) {
+        return userRepository.getById(id);
+    }
+
+    @Override
+    public List<User> listUser() {
+        return userRepository.listUser();
+    }
+
+    @Override
+    public void insertUser(User user) {
         userRepository.insertUser(user);
     }
 }
