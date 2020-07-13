@@ -1,13 +1,14 @@
 package com.cs.config;
 
 import com.cs.security.*;
+import com.cs.security.provider.JwtAuthenticationProvider;
+import com.cs.security.provider.LoginAuthticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -20,8 +21,8 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final static String USER_LOGIN_URL = "/assignment/security/login";
-    private final static String USER_REGISTER_URL = "/assignment/users/register";
+    private final static String USER_LOGIN_URL = "/csDemo/security/login";
+    private final static String USER_REGISTER_URL = "/csDemo/users/register";
 
     @Autowired
     private RestAuthenticationEntryPoint authenticationEntryPoint;
@@ -75,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                     .addFilterBefore(buildLoginAuthenticationFilter(USER_LOGIN_URL), UsernamePasswordAuthenticationFilter.class)
-                    .addFilterBefore(buildJwtAuthorizationTokenFilter(permitAllEndpointList, "/assignment/**"), UsernamePasswordAuthenticationFilter.class);
+                    .addFilterBefore(buildJwtAuthorizationTokenFilter(permitAllEndpointList, "/api/**"), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
@@ -84,8 +85,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(jwtAuthenticationProvider);
     }
 
-    @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers( "/assignment/h2");
-    }
 }

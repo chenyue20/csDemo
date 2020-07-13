@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class AssignmentApplication {
+public class CsDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AssignmentApplication.class, args);
+		SpringApplication.run(CsDemoApplication.class, args);
 	}
 
 }

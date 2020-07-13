@@ -23,7 +23,6 @@ public class JwtTokenUtil {
     @Value("${auth.publicKeyString}")
     private static String publicKeyString;
 
-
     public String generateToken(RSAPublicKey publicKey, RSAPrivateKey privateKey) {
         String jwtToken;
         try{

@@ -1,5 +1,6 @@
-package com.cs.security;
+package com.cs.security.provider;
 
+import com.cs.security.JwtAuthenticationToken;
 import com.cs.utils.JwtTokenUtil;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.AuthenticationServiceException;
