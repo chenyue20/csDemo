@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 public class SecurityController {
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<LoginVO> loginCheck(HttpServletRequest request, @RequestBody LoginVO loginVO) {
-
-        return new ResponseEntity<>(loginVO,HttpStatus.OK);
-    }
+//    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
+//    public ResponseEntity<LoginVO> loginCheck(HttpServletRequest request, @RequestBody LoginVO loginVO) {
+//
+//        return new ResponseEntity<>(loginVO,HttpStatus.OK);
+//    }
 
 
 }

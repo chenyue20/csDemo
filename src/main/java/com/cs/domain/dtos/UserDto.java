@@ -12,12 +12,8 @@ import java.util.Collection;
 public class UserDto implements UserDetails {
     private String username;
     private String password;
+    private String name;
     private String email;
-    private String nickName;
-    private String captcha;
-    private Long id;
-    private Integer age;
-    private String customerId;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -31,12 +27,12 @@ public class UserDto implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override

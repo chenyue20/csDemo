@@ -1,5 +1,6 @@
 package com.cs.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,12 +15,13 @@ import java.io.Serializable;
 @ToString
 public class User implements Serializable {
 
-  @Tolerate
-  public User() {
-  }
+    @Tolerate
+    public User() {
+    }
 
-  Long id;
-  String userName;
-  Integer age;
-  String customerId;
+    Long id;
+    private String username;
+    private String password;
+    private String name;
+    private String email;
 }

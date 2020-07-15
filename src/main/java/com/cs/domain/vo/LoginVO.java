@@ -9,14 +9,11 @@ import lombok.Data;
 public class LoginVO {
 
     @JsonProperty("username")
-    private String userName;
-
+    private String username;
     @JsonProperty("password")
     private String password;
-
     @JsonProperty("name")
     private String name;
-
     @JsonProperty("email")
     private String email;
 

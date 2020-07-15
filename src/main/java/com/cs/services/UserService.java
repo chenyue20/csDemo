@@ -19,5 +19,7 @@ public interface UserService {
 
     List<User> listUser();
 
+    User getByName(String name);
+
     void insertUser(User user);
 }

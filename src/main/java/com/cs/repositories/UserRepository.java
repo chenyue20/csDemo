@@ -14,6 +14,8 @@ import java.util.List;
 public interface UserRepository {
     User getById(Long id);
 
+    User getByName(String username);
+
     List<com.cs.entity.User> listUser();
 
     void insertUser(User user);

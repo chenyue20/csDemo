@@ -3,17 +3,24 @@
 <mapper namespace="com.cs.repositories.UserRepository">
   <resultMap id="BaseResultMap" type="com.cs.entity.User">
     <id column="id" property="id" jdbcType="BIGINT"/>
-    <result column="username" property="userName" jdbcType="VARCHAR"/>
-    <result column="age" property="age" jdbcType="INTEGER"/>
-    <result column="customerId" property="customerId" jdbcType="VARCHAR"/>
+    <result column="username" property="username" jdbcType="VARCHAR"/>
+    <result column="name" property="name" jdbcType="VARCHAR"/>
+    <result column="password" property="password" jdbcType="VARCHAR"/>
+    <result column="email" property="email" jdbcType="VARCHAR"/>
   </resultMap>
   <sql id="Base_Column_List" >
-        id, username, age, customerId
+        id, username, `name`, password,email
     </sql>
   <select id="listUser" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
     from user
+  </select>
+  <select id="getByName" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where username =#{username}
   </select>
 
   <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -23,7 +30,7 @@
     where id =#{id}
   </select>
   <insert id="insertUser" parameterType="com.cs.entity.User" >
-    insert into user (id,username,age,customerId) values (#{id},#{userName},#{age},#{customerId})
+    insert into user (id,username,`name`,password,email) values (#{id},#{userName},#{name},#{password},#{email})
   </insert>
 
 </mapper>
